@@ -1,0 +1,35 @@
+{{template "header" .}}
+{{if .Events}}
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Дата</th>
+                <th scope="col">Место</th>
+                <th scope="col">Свободных мест</th>
+                <th scope="col">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .Events}}
+            <tr>
+                <td><a href="/events/{{.ID}}">{{.Title}}</a></td>
+                <td>{{.Date}}</td>
+                <td>{{.Location}}</td>
+                <td>{{.Available}}</td>
+                <td>
+                    <div class="links">
+                        <a href="/events/{{.ID}}/register">Регистрация</a>
+                        <a href="/events/{{.ID}}/participants">Участники</a>
+                    </div>
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<p>Мероприятий пока нет. <a href="/events/new">Добавить первое мероприятие</a>.</p>
+{{end}}
+{{template "footer" .}}

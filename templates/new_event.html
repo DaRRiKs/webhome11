@@ -1,0 +1,18 @@
+{{template "header" .}}
+<form action="/events" method="post" class="data-form">
+    <label for="title">Название</label>
+    <input id="title" name="title" type="text" value="{{.Form.Get "title"}}" required>
+
+    <label for="date">Дата проведения</label>
+    <input id="date" name="date" type="date" value="{{.Form.Get "date"}}" required>
+
+    <label for="location">Место проведения</label>
+    <input id="location" name="location" type="text" value="{{.Form.Get "location"}}" required>
+
+    <label for="capacity">Максимальное количество участников</label>
+    <input id="capacity" name="capacity" type="number" min="1" step="1" value="{{.Form.Get "capacity"}}" required>
+
+    <button type="submit">Создать мероприятие</button>
+</form>
+<p><a href="/">К списку мероприятий</a></p>
+{{template "footer" .}}

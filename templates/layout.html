@@ -1,0 +1,28 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{.Title}} — Регистрация на мероприятия</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <p class="site-title">Регистрация на мероприятия</p>
+        <nav aria-label="Основная навигация">
+            <a href="/">Мероприятия</a>
+            <a href="/events/new">Добавить мероприятие</a>
+            <a href="/statistics">Статистика</a>
+        </nav>
+    </header>
+    <main>
+        <h1>{{.Title}}</h1>
+        {{if .Error}}<p class="error" role="alert">{{.Error}}</p>{{end}}
+{{end}}
+
+{{define "footer"}}
+    </main>
+</body>
+</html>
+{{end}}

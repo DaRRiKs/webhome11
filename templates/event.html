@@ -1,0 +1,19 @@
+{{template "header" .}}
+<dl>
+    <dt>Дата проведения</dt>
+    <dd>{{.Event.Date}}</dd>
+    <dt>Место проведения</dt>
+    <dd>{{.Event.Location}}</dd>
+    <dt>Вместимость</dt>
+    <dd>{{.Event.Capacity}}</dd>
+    <dt>Зарегистрировано участников</dt>
+    <dd>{{.Event.Registered}}</dd>
+    <dt>Свободных мест</dt>
+    <dd>{{.Event.Available}}</dd>
+</dl>
+<p class="links">
+    <a href="/events/{{.Event.ID}}/register">Зарегистрироваться</a>
+    <a href="/events/{{.Event.ID}}/participants">Список участников</a>
+</p>
+<p><a href="/">К списку мероприятий</a></p>
+{{template "footer" .}}

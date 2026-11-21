@@ -1,0 +1,19 @@
+{{template "header" .}}
+<dl>
+    <dt>Всего мероприятий</dt>
+    <dd>{{.Statistics.EventCount}}</dd>
+    <dt>Активных регистраций</dt>
+    <dd>{{.Statistics.RegistrationCount}}</dd>
+</dl>
+{{if .Statistics.EventCount}}
+    {{if eq .Statistics.RegistrationCount 0}}
+    <p>Активных регистраций пока нет.</p>
+    {{end}}
+    <h2>Мероприятие с наибольшим количеством регистраций</h2>
+    <p><a href="/events/{{.Statistics.PopularEvent.ID}}">{{.Statistics.PopularEvent.Title}}</a></p>
+    <p>Количество участников: {{.Statistics.PopularCount}}</p>
+{{else}}
+<p>Мероприятий пока нет. Статистика появится после добавления мероприятий.</p>
+{{end}}
+<p><a href="/">К списку мероприятий</a></p>
+{{template "footer" .}}
